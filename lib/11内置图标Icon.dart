@@ -1,7 +1,5 @@
-// 自定义Icon
-// 需要设置 pubspec.yaml 的 fonts
+// 内置Icon组件
 import 'package:flutter/material.dart';
-import "./12iconfontClass.dart";
 
 void main() {
   // 入口方法
@@ -21,9 +19,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: const [
-        Icon(IconFont.weixin),
-        Icon(IconFont.pen),
-        Icon(IconFont.book, size: 40, color: Colors.pink)
+        Icon(Icons.abc),
+        Icon(Icons.home, size: 40, color: Colors.red),
+        Icon(Icons.search),
+        Icon(Icons.settings),
+        Icon(Icons.personal_injury_outlined),
+        Icon(Icons.category),
+        Icon(Icons.shop),
+        Icon(Icons.bluetooth),
       ]
     );
   }
