@@ -1,7 +1,5 @@
-// 自定义Icon
-// 需要设置 pubspec.yaml 的 fonts
+// 静态列表1 ListView
 import 'package:flutter/material.dart';
-import "./12iconfontClass.dart";
 
 void main() {
   // 入口方法
@@ -19,11 +17,49 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
+      scrollDirection: Axis.vertical, // 排列方式。Axis.vertical 默认值，垂直； Axis.horizontal 水平,
+      // padding：EdgelnsetsGeometry(10), // 内边距
+      // reverse: true, // 反向排序
       children: const [
-        Icon(IconFont.weixin),
-        Icon(IconFont.pen),
-        Icon(IconFont.book, size: 40, color: Colors.pink)
+        ListTile(title: Text("标题")),
+        Text("可以滑动的列表1"),
+        SizedBox(height: 20), // 占位盒子
+        Text("可以滑动的列表2"),SizedBox(height: 20), // 占位盒子
+        Text("可以滑动的列表3"),SizedBox(height: 20), // 占位盒子
+        Text("可以滑动的列表4"),SizedBox(height: 20), // 占位盒子
+        Text("可以滑动的列表5"),SizedBox(height: 20), // 占位盒子
+        Text("可以滑动的列表6"),SizedBox(height: 20), // 占位盒子
+        Text("可以滑动的列表"),SizedBox(height: 20), // 占位盒子
+        Text("可以滑动的列表"),SizedBox(height: 20), // 占位盒子
+        Text("可以滑动的列表"),SizedBox(height: 20), // 占位盒子
+        Text("可以滑动的列表"),SizedBox(height: 20), // 占位盒子
+        Text("可以滑动的列表"),SizedBox(height: 20), // 占位盒子
+        Text("可以滑动的列表"),SizedBox(height: 20), // 占位盒子
+        Text("可以滑动的列表"),SizedBox(height: 20), // 占位盒子
+        Text("可以滑动的列表"),SizedBox(height: 20), // 占位盒子
+        Text("可以滑动的列表"),SizedBox(height: 20), // 占位盒子
+        Text("可以滑动的列表"),SizedBox(height: 20), // 占位盒子
+        Text("可以滑动的列表"),SizedBox(height: 20), // 占位盒子
+        Text("可以滑动的列表"),SizedBox(height: 20), // 占位盒子
+        Text("可以滑动的列表"),SizedBox(height: 20), // 占位盒子
+        Text("可以滑动的列表"),SizedBox(height: 20), // 占位盒子
+        Text("可以滑动的列表"),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       ]
     );
   }
