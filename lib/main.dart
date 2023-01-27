@@ -1,4 +1,4 @@
-// 图片组件 圆形图片1
+// 图片组件 圆形图片2
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,21 +18,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Center(
-      // 图片元素建议放在 Container 里，这样比较好控制
-      child: Container(
+    return ClipOval(
+      child: Image.network(
+        "https://cdn2.thecatapi.com/images/VZ3qFLIe3.jpg",
         width: 150,
         height: 150,
-        decoration: BoxDecoration(
-          color: Colors.yellow,
-          // 背景图
-          image: const DecorationImage(
-            image: NetworkImage("https://cdn2.thecatapi.com/images/VZ3qFLIe3.jpg"),
-            fit: BoxFit.cover, // 超出会剪裁
-          ),
-          // 设置圆角
-          borderRadius: BorderRadius.circular(75)
-        ),
+        fit: BoxFit.cover,
       )
     );
   }
