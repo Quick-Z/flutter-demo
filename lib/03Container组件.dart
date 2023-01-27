@@ -24,6 +24,12 @@ class MyApp extends StatelessWidget {
       child: Container(
         // 配置Container容器内元素的定位
         alignment: Alignment.bottomRight, // Alignment.center、topLeft、bottomRight 等等
+        // 位移组件
+        // transform: Matrix4.translationValues(-40, 0, 0), // 位移 x, y, z
+        // 旋转
+        // transform: Matrix4.rotationZ(0.2),
+        // 倾斜
+        // transform: Matrix4.skewY(0.2),
         // 容器的宽高
         width: 200,
         height: 200,
