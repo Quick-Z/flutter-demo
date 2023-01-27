@@ -1,5 +1,4 @@
-// 图片组件 加载本地图片
-// 需要在 pubspec.yaml 里配置 assets
+// 图片组件 圆形图片2
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,16 +18,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Container(
-      width: 150,
-      height: 150,
-      decoration: const BoxDecoration(
-        color: Colors.yellow,
-      ),
-      child: Image.asset(
-        "images/9t1.jpg",
-        fit: BoxFit.cover
-      ),
+    return ClipOval(
+      child: Image.network(
+        "https://cdn2.thecatapi.com/images/VZ3qFLIe3.jpg",
+        width: 150,
+        height: 150,
+        fit: BoxFit.cover,
+      )
     );
   }
 }
