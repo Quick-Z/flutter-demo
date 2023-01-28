@@ -1,5 +1,6 @@
-// 动态列表1
-import 'package:flutter/material.dart';
+// 动态列表2
+import "package:flutter/material.dart";
+import "./res/listData.dart";
 
 void main() {
   // 入口方法
@@ -7,23 +8,42 @@ void main() {
     MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: const Text("雷猴123")),
-        body: const MyApp(),
+        body: MyApp(),
       ),
     )
   );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  // const MyApp({super.key});
+
+  MyApp({Key? key}): super(key: key) {
+    print(listData);
+  }
 
   List<Widget> _initListData() {
-    List<Widget> list = [];
+    // List<Widget> tempList = [];
+    // for(var i = 0; i < listData.length; i++) {
+    //   tempList.add(
+    //     ListTile(
+    //       title: Text("${listData[i]['title']}"),
+    //       subtitle: Text("${listData[i]['author']}"),
+    //       leading: Image.network("${listData[i]['imageUrl']}")
+    //     )
+    //   );
+    // }
 
-    for(var i = 0; i < 20; i++) {
-      list.add(ListTile(title: Text("我是一个列表 $i")));
-    }
+    // return tempList;
 
-    return list;
+    var tempList = listData.map((value) {
+      return ListTile(
+        title: Text("${value['title']}"),
+        subtitle: Text("${value['author']}"),
+        leading: Image.network("${value['imageUrl']}")
+      );
+    });
+
+    return tempList.toList();
   }
 
   @override
