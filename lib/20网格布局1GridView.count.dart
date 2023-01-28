@@ -1,4 +1,4 @@
-// 网格布局2 GridView.extent
+// 网格布局1 GridView.count
 import "package:flutter/material.dart";
 
 void main() {
@@ -18,9 +18,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.extent(
-      // 通过它可以快速创建横轴子元素为固定最大长度的GridView
-      maxCrossAxisExtent: 120, // 配置元素最大长度，横轴子元素最大长度
+    return GridView.count(
+      crossAxisCount: 4, // 主轴数量，必传
       children: const [
         Icon(Icons.pedal_bike),
         Icon(Icons.home),
