@@ -1,4 +1,4 @@
-// 动态列表2
+// 动态列表3 ListView.builder
 import "package:flutter/material.dart";
 import "./res/listData.dart";
 
@@ -15,41 +15,25 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // const MyApp({super.key});
+  // late List<String> list;
+
+  List<String> list = [];
 
   MyApp({Key? key}): super(key: key) {
-    print(listData);
-  }
-
-  List<Widget> _initListData() {
-    // List<Widget> tempList = [];
-    // for(var i = 0; i < listData.length; i++) {
-    //   tempList.add(
-    //     ListTile(
-    //       title: Text("${listData[i]['title']}"),
-    //       subtitle: Text("${listData[i]['author']}"),
-    //       leading: Image.network("${listData[i]['imageUrl']}")
-    //     )
-    //   );
-    // }
-
-    // return tempList;
-
-    var tempList = listData.map((value) {
-      return ListTile(
-        title: Text("${value['title']}"),
-        subtitle: Text("${value['author']}"),
-        leading: Image.network("${value['imageUrl']}")
-      );
-    });
-
-    return tempList.toList();
+    for (var i = 0; i < 20; i++) {
+      list.add("我是第${i}条数据");
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: _initListData(),
+    return ListView.builder(
+      itemCount: list.length, // 循环次数
+      itemBuilder: (context, index) {
+        return ListTile(
+          title: Text(list[index])
+        );
+      }
     );
   }
 }
