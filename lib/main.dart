@@ -1,6 +1,5 @@
-// 动态列表4 ListView.builder
+// 网格布局1 GridView.count
 import "package:flutter/material.dart";
-import "./res/listData.dart";
 
 void main() {
   // 入口方法
@@ -19,15 +18,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: listData.length, // 循环次数
-      itemBuilder: (context, index) {
-        return ListTile(
-          leading: Image.network(listData[index]['imageUrl']),
-          title: Text(listData[index]['title']),
-          subtitle: Text(listData[index]['author'])
-        );
-      }
+    return GridView.count(
+      crossAxisCount: 4, // 主轴数量，必传
+      children: const [
+        Icon(Icons.pedal_bike),
+        Icon(Icons.home),
+        Icon(Icons.ac_unit),
+        Icon(Icons.search),
+        Icon(Icons.settings),
+        Icon(Icons.airport_shuttle),
+        Icon(Icons.all_inclusive),
+        Icon(Icons.beach_access),
+        Icon(Icons.cake),
+        Icon(Icons.circle)
+      ],
     );
   }
 }
