@@ -1,6 +1,5 @@
-// 动态列表4 ListView.builder
+// 动态列表3 ListView.builder
 import "package:flutter/material.dart";
-import "./res/listData.dart";
 
 void main() {
   // 入口方法
@@ -15,17 +14,23 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}): super(key: key);
+  // late List<String> list;
+
+  List<String> list = [];
+
+  MyApp({Key? key}): super(key: key) {
+    for (var i = 0; i < 20; i++) {
+      list.add("我是第${i}条数据");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: listData.length, // 循环次数
+      itemCount: list.length, // 循环次数
       itemBuilder: (context, index) {
         return ListTile(
-          leading: Image.network(listData[index]['imageUrl']),
-          title: Text(listData[index]['title']),
-          subtitle: Text(listData[index]['author'])
+          title: Text(list[index])
         );
       }
     );
