@@ -1,4 +1,4 @@
-// 网格布局2 GridView.extent
+// 网格布局3 GridView 练习
 import "package:flutter/material.dart";
 
 void main() {
@@ -14,25 +14,38 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}): super(key: key);
+  const MyApp({Key? key}): super(key: key);
+
+  List<Widget> _initGridViewData() {
+    List<Widget> tempList = [];
+
+    for(var i = 0; i < 12; i++) {
+      tempList.add(Container(
+        alignment: Alignment.center,
+        decoration: const BoxDecoration(
+          color: Colors.blue
+        ),
+        child: Text(
+          "第$i个元素",
+          style: const TextStyle(
+            fontSize: 20
+          ),
+        )
+      ));
+    }
+
+    return tempList;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return GridView.extent(
-      // 通过它可以快速创建横轴子元素为固定最大长度的GridView
-      maxCrossAxisExtent: 120, // 配置元素最大长度，横轴子元素最大长度
-      children: const [
-        Icon(Icons.pedal_bike),
-        Icon(Icons.home),
-        Icon(Icons.ac_unit),
-        Icon(Icons.search),
-        Icon(Icons.settings),
-        Icon(Icons.airport_shuttle),
-        Icon(Icons.all_inclusive),
-        Icon(Icons.beach_access),
-        Icon(Icons.cake),
-        Icon(Icons.circle)
-      ],
+    return GridView.count(
+      crossAxisCount: 2, // 主轴数量，必传
+      crossAxisSpacing: 10, // 横轴的间距
+      mainAxisSpacing: 10, // 垂直间距
+      padding: const EdgeInsets.all(10), // 四周边距
+      childAspectRatio: 1.2, // 子元素宽高比，默认是1，正方形。
+      children: _initGridViewData(),
     );
   }
 }
