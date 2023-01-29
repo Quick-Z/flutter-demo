@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // return IconContainer(Icons.home, color: Colors.yellow);
     return Container(
-      width: 300,
-      height: 500,
+      width: double.infinity,
+      height: double.infinity,
       color: Colors.orange,
       child: Row( // 外部没有 Container，行是自适应的
         mainAxisAlignment: MainAxisAlignment.center, // 主轴对齐方式
