@@ -1,6 +1,5 @@
-// 布局 padding
+// 线性布局 Row 和 Column
 import "package:flutter/material.dart";
-import "./res/listData.dart";
 
 void main() {
   // 入口方法
@@ -19,17 +18,45 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return Container(
-    //   padding: const EdgeInsets.all(20),
-    //   child: const Text(
-    //     "雷猴啊"
-    //   )
-    // );
+    // return IconContainer(Icons.home, color: Colors.yellow);
+    return Container(
+      width: 300,
+      height: 500,
+      color: Colors.orange,
+      child: Row( // 外部没有 Container，行是自适应的
+        mainAxisAlignment: MainAxisAlignment.center, // 主轴对齐方式
+        crossAxisAlignment: CrossAxisAlignment.center, // 辅轴对齐方式，会根据外部容器的高度或者宽度去自动调节
+        children: [
+          IconContainer(Icons.home),
+          IconContainer(Icons.search, color: Colors.green),
+          IconContainer(Icons.account_balance_outlined, color: Colors.indigoAccent),
+          // IconContainer(Icons.adb_outlined, color: Colors.brown)
+        ],
+      )
+    );
+  }
+}
 
-    // Padding组件的功能是让上下左右都存在内边距
-     return const Padding(
-       padding: EdgeInsets.all(20),
-       child: Text("雷猴")
-     );
+// 自定义 Icon 容器
+class IconContainer extends StatelessWidget {
+  Color color;
+  IconData icon;
+
+  // IconContainer(this.icon, {Key? key, required this.color}): super(key: key);
+  IconContainer(this.icon, {Key? key, this.color = Colors.red}): super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      width: 100,
+      height: 100,
+      color: color,
+      child: Icon(
+        icon,
+        color: Colors.white,
+        size: 28,
+      ),
+    );
   }
 }
