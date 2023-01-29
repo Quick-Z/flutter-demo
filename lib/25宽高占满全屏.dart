@@ -1,4 +1,4 @@
-// 线性布局 Row 和 Column
+// 占满全屏
 import "package:flutter/material.dart";
 
 void main() {
