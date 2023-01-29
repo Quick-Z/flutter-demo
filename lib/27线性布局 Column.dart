@@ -1,4 +1,4 @@
-// 线性布局 Row 比例
+// 线性布局 Column
 import "package:flutter/material.dart";
 
 void main() {
@@ -23,16 +23,14 @@ class MyApp extends StatelessWidget {
       width: 300,
       height: 500,
       color: Colors.orange,
-      child: Row( // 外部没有 Container，行是自适应的
+      child: Column( // 外部没有 Container，行是自适应的
+        mainAxisAlignment: MainAxisAlignment.spaceBetween, // 主轴对齐方式
+        crossAxisAlignment: CrossAxisAlignment.center, // 辅轴对齐方式，会根据外部容器的高度或者宽度去自动调节
         children: [
-          Expanded(
-            flex: 1,
-            child: IconContainer(Icons.home), // 此时这个元素设置宽度是没有效果的
-          ),
-          Expanded(
-              flex: 2,
-              child: IconContainer(Icons.search, color: Colors.green)
-          )
+          IconContainer(Icons.home),
+          IconContainer(Icons.search, color: Colors.green),
+          IconContainer(Icons.account_balance_outlined, color: Colors.indigoAccent),
+          // IconContainer(Icons.adb_outlined, color: Colors.brown)
         ],
       )
     );
