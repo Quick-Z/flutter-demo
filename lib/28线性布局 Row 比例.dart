@@ -1,4 +1,4 @@
-// 弹性布局 Flex
+// 线性布局 Row 比例
 import "package:flutter/material.dart";
 
 void main() {
@@ -18,19 +18,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // return IconContainer(Icons.home, color: Colors.yellow);
     return Container(
       width: 300,
       height: 500,
       color: Colors.orange,
-      child: Flex( // 外部没有 Container，行是自适应的
-        // direction: Axis.vertical,
-        direction: Axis.horizontal,
+      child: Row( // 外部没有 Container，行是自适应的
         children: [
           Expanded(
-            flex: 1, // 自适应宽度
-            child: IconContainer(Icons.home),
+            flex: 1,
+            child: IconContainer(Icons.home), // 此时这个元素设置宽度是没有效果的
           ),
-          IconContainer(Icons.search, color: Colors.green) // 固定宽度
+          Expanded(
+              flex: 2,
+              child: IconContainer(Icons.search, color: Colors.green)
+          )
         ],
       )
     );
@@ -49,7 +51,7 @@ class IconContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      width: 80,
+      width: 100,
       height: 100,
       color: color,
       child: Icon(
