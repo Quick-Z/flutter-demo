@@ -18,45 +18,48 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 300,
-      height: 500,
-      color: Colors.orange,
-      child: Flex( // 外部没有 Container，行是自适应的
-        // direction: Axis.vertical,
-        direction: Axis.horizontal,
-        children: [
-          Expanded(
-            flex: 1, // 自适应宽度
-            child: IconContainer(Icons.home),
-          ),
-          IconContainer(Icons.search, color: Colors.green) // 固定宽度
-        ],
-      )
-    );
-  }
-}
-
-// 自定义 Icon 容器
-class IconContainer extends StatelessWidget {
-  Color color;
-  IconData icon;
-
-  // IconContainer(this.icon, {Key? key, required this.color}): super(key: key);
-  IconContainer(this.icon, {Key? key, this.color = Colors.red}): super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      width: 80,
-      height: 100,
-      color: color,
-      child: Icon(
-        icon,
-        color: Colors.white,
-        size: 28,
-      ),
+    return ListView(
+      children: [
+        Container(
+          width: double.infinity,
+          height: 200,
+          color: Colors.grey,
+        ),
+        Row(
+          children: [
+            Expanded(
+              flex: 2,
+              child: SizedBox(
+                height: 180,
+                child: Image.network("https://www.itying.com/images/flutter/2.png", fit: BoxFit.cover)
+              )
+            ),
+            Expanded(
+              flex: 1,
+              child: SizedBox(
+                height: 180,
+                child: Column(
+                  children: [
+                    Expanded(
+                        flex: 1,
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: Image.network("https://www.itying.com/images/flutter/3.png", fit: BoxFit.cover)
+                        )
+                    ),
+                    // 间距
+                    const SizedBox(height: 5),
+                    Expanded(
+                        flex: 2,
+                        child: Image.network("https://www.itying.com/images/flutter/4.png", fit: BoxFit.cover)
+                    )
+                  ],
+                )
+              )
+            )
+          ]
+        )
+      ],
     );
   }
 }
