@@ -1,4 +1,4 @@
-// 宽高比容器 AspectRatio
+// 获取屏幕宽度和高度
 import "package:flutter/material.dart";
 
 void main() {
@@ -20,13 +20,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    // 页面上显示一个容器，宽度是屏幕的宽度，高度是容器宽度的一半
+    // 获取屏幕的宽度和高度
+    final size = MediaQuery.of(context).size;
 
-    return AspectRatio(
-      aspectRatio: 2/1, // 宽高比
-      child: Container(
-        color: Colors.green,
-      )
+    return ListView(
+      children: [
+        ListTile(
+          title: Text("屏幕宽度: ${size.width}")
+        ),
+        ListTile(
+          title: Text("屏幕高度: ${size.height}")
+        )
+      ]
     );
   }
 }
