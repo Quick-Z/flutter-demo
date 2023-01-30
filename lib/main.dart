@@ -1,8 +1,4 @@
-// 布局 Wrap 组件
-/**
- * Wrap 可以实现流布局，单行的Wrap跟Row表现几乎一致，单列的Wrap跟Column表现几乎一致。
- * 但Row与Column都是单行单列的，Wrap则突破了这个限制，mainAxis上空间不足时，则向crossAxis上去扩展显示。
- */
+// 布局 Wrap 例子
 import "package:flutter/material.dart";
 
 void main() {
@@ -21,34 +17,76 @@ class MyApp extends StatelessWidget {
 
   const MyApp({Key? key}) : super(key: key);
 
-  List<Widget> _initListData() {
-    List<Widget> list = [];
-
-    for(var i = 0; i < 13; i++) {
-      list.add(
-        Button(
-          "第${i + 1}集",
-          onPressed: () {  },
-        )
-      );
-    }
-
-    return list;
-  }
-
-
   @override
   Widget build(BuildContext context) {
 
-    return Padding(
+    return ListView(
       padding: const EdgeInsets.all(10),
-      child: Wrap(
-          spacing: 5, // 主轴的间距
-          runSpacing: 5, // 辅轴的间距
-          // direction: Axis.vertical, // 排列方式。vertical 垂直; horizontal 水平
-          alignment: WrapAlignment.center, // 布局方式（水平）
-          children: _initListData()
-      ),
+      children: [
+        Row(
+          children: [
+            Text(
+              "热搜",
+              // style: Theme.of(context).textTheme.headline6, // 有 1-6 级标题
+              style: Theme.of(context).textTheme.titleLarge, // 大标题 titleLarge; 中级标题 titleMedium
+            ),
+          ]
+        ),
+
+        const Divider(), // 分割线
+
+        Wrap(
+          spacing: 10,
+          runSpacing: 10,
+          children: [
+            Button("女装", onPressed: () {}),
+            Button("笔记本", onPressed: () {}),
+            Button("玩具", onPressed: () {}),
+            Button("文学", onPressed: () {}),
+            Button("男装", onPressed: () {}),
+            Button("时尚", onPressed: () {}),
+            Button("手机", onPressed: () {}),
+            Button("水果", onPressed: () {}),
+          ]
+        ),
+
+        const SizedBox(height: 10),
+
+        Row(
+          children: [
+            Text("历史记录", style: Theme.of(context).textTheme.titleLarge)
+          ]
+        ),
+
+        const Divider(), // 分割线
+
+        // ListView 里不能嵌套 ListView
+
+        Column(
+          children: const [
+            ListTile(title: Text("女装")),
+            Divider(), // 分割线
+            ListTile(title: Text("手机")),
+            Divider(), // 分割线
+            ListTile(title: Text("电脑")),
+            Divider(), // 分割线
+          ]
+        ),
+        const SizedBox(height: 40),
+
+        Padding(
+          padding: const EdgeInsets.all(40),
+          child: OutlinedButton.icon(
+            // 自适应宽度按钮
+            style: ButtonStyle(
+              foregroundColor: MaterialStateProperty.all(Colors.black45)
+            ),
+            onPressed: (){  },
+            icon: const Icon(Icons.delete),
+            label: const Text("清空历史记录")
+          )
+        )
+      ]
     );
   }
 }
