@@ -20,8 +20,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    // 页面上显示一个容器，宽度是屏幕的宽度，高度是容器宽度的一半
-
     return ListView(
       children: [
         Card(
