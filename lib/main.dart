@@ -1,4 +1,4 @@
-// Align 组件 例子
+// 获取屏幕宽度和高度
 import "package:flutter/material.dart";
 
 void main() {
@@ -17,53 +17,19 @@ class MyApp extends StatelessWidget {
 
   const MyApp({Key? key}) : super(key: key);
 
-  List<Widget> _initListData() {
-    List<Widget> list = [];
-
-    for(var i = 0; i < 20; i++) {
-      list.add(ListTile(title: Text("列表$i")));
-    }
-
-    return list;
-  }
-
   @override
   Widget build(BuildContext context) {
 
-    // 等同于上面的代码
-    return Column(
+    // 获取屏幕的宽度和高度
+    final size = MediaQuery.of(context).size;
+
+    return ListView(
       children: [
-        SizedBox(
-          width: double.infinity,
-          height: 40,
-          child: Stack(
-            children: const [
-              Align(
-                alignment: Alignment.topLeft,
-                child: Text("收藏"),
-              ),
-              Align(
-                alignment: Alignment.topRight,
-                child: Text("购买"),
-              ),
-            ],
-          )
+        ListTile(
+          title: Text("屏幕宽度: ${size.width}")
         ),
-        SizedBox(
-          width: double.infinity,
-          height: 40,
-          child: Stack(
-            children: const [
-              Positioned(
-                left: 10,
-                child: Text("收藏"),
-              ),
-              Positioned(
-                right: 10,
-                child: Text("购买"),
-              ),
-            ],
-          )
+        ListTile(
+          title: Text("屏幕高度: ${size.height}")
         )
       ]
     );

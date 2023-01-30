@@ -17,16 +17,6 @@ class MyApp extends StatelessWidget {
 
   const MyApp({Key? key}) : super(key: key);
 
-  List<Widget> _initListData() {
-    List<Widget> list = [];
-
-    for(var i = 0; i < 20; i++) {
-      list.add(ListTile(title: Text("列表$i")));
-    }
-
-    return list;
-  }
-
   @override
   Widget build(BuildContext context) {
 
