@@ -1,4 +1,4 @@
-// 层叠组件4 例子 优化版
+// Align 组件
 import "package:flutter/material.dart";
 
 void main() {
@@ -34,33 +34,29 @@ class MyApp extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     // Stack 是堆的意思，后面的元素默认会堆到前面的元素上方(z轴方向的)
-    return Stack(
-      children: [
-        ListView(
-          padding: const EdgeInsets.only(bottom: 50),
-          children: _initListData(),
-        ),
-        Positioned(
-          left: 0,
-          // right: 0,
-          // top: 0,
-          height: 44,
-          bottom: 0,
-          // width: 300, // 需要指定宽度，而且在这里无法使用 double.infinity。如果不想指定宽度，需要同时设置left和right
-          width: size.width,
-          child:Container(
-            // 剧中
-            alignment: Alignment.center,
-            color: Colors.black,
-            child: const Text(
-              "二级导航",
-              style: TextStyle(
-                color: Colors.white
-              )
-            )
-          )
-        )
-      ]
+    // return Container(
+    //   alignment: Alignment.center,
+    //   width: 200,
+    //   height: 200,
+    //   color: Colors.red,
+    //   child: const Text("雷猴")
+    // );
+
+    // 等同于上面的代码
+    return Container(
+      width: 200,
+      height: 200,
+      color: Colors.red,
+      child: const Align(
+        // alignment: Alignment.centerRight,
+        alignment: Alignment(1, 1), // 可以设置子元素的位置（适合的取值是-1 ～ 1）
+        child: Text("雷猴234")
+      )
+
+      // 如果想剧中，页可以直接使用 Center 组件
+      // child: const Center(
+      //   child: Text("雷猴Flutter")
+      // )
     );
   }
 }
