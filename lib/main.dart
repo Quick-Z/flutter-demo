@@ -1,4 +1,4 @@
-// 弹性布局 Flex
+// 层叠组件1 Stack
 import "package:flutter/material.dart";
 
 void main() {
@@ -14,52 +14,27 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}): super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        Container(
-          width: double.infinity,
-          height: 200,
-          color: Colors.grey,
-        ),
-        Row(
-          children: [
-            Expanded(
-              flex: 2,
-              child: SizedBox(
-                height: 180,
-                child: Image.network("https://www.itying.com/images/flutter/2.png", fit: BoxFit.cover)
-              )
-            ),
-            Expanded(
-              flex: 1,
-              child: SizedBox(
-                height: 180,
-                child: Column(
-                  children: [
-                    Expanded(
-                        flex: 1,
-                        child: SizedBox(
-                          width: double.infinity,
-                          child: Image.network("https://www.itying.com/images/flutter/3.png", fit: BoxFit.cover)
-                        )
-                    ),
-                    // 间距
-                    const SizedBox(height: 5),
-                    Expanded(
-                        flex: 2,
-                        child: Image.network("https://www.itying.com/images/flutter/4.png", fit: BoxFit.cover)
-                    )
-                  ],
-                )
-              )
-            )
-          ]
-        )
-      ],
+    // Stack 是堆的意思，后面的元素默认会堆到前面的元素上方(z轴方向的)
+    return Stack(
+        alignment: Alignment.center, // 配置子元素的显示方式
+        children: [
+          Container(
+            height: 400,
+            width: 300,
+            color: Colors.red,
+          ),
+          Container (
+            height: 200,
+            width: 200,
+            color: Colors.yellow,
+          ),
+          const Text("雷猴Flutter"),
+          const Text("asdfkljklasd"),
+        ]
     );
   }
 }
