@@ -1,6 +1,6 @@
-// 底部导航条 FloatingActionButton
+// 底部导航条 BottomNavigationBar
 import "package:flutter/material.dart";
-import './pages/tabsFloatingActionButton.dart';
+import './pages/tabsBottomNavigationBar.dart';
 
 void main() {
   // 入口方法
@@ -17,10 +17,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "雷猴啊",
       theme: ThemeData(
-        primarySwatch: Colors.blue
+          primarySwatch: Colors.blue
       ),
       // home: HomePage(),
-      home: const TabsFloatingActionButton(),
+      home: const TabsBottomNavigationBar(),
 
     );
   }
