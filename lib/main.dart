@@ -1,6 +1,5 @@
-// 抽屉组件 drawer
+// 顶部导航 AppBar
 import "package:flutter/material.dart";
-import './pages/tabsDrawer.dart';
 
 void main() {
   // 入口方法
@@ -20,10 +19,50 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue
       ),
       // home: HomePage(),
-      home: const TabsDrawer(),
-
+      home: const HomePage(),
     );
   }
 }
+
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            print("左侧按钮图标");
+          },
+          icon: const Icon(Icons.menu),
+        ),
+        backgroundColor: Colors.lightBlue, // 配置顶部背景色
+        title: const Text("雷猴"),
+        actions: [ // 配置右侧按钮图标
+          IconButton(
+            onPressed: () {
+              print("搜索");
+            },
+            icon: const Icon(Icons.search)
+          ),
+          IconButton(
+            onPressed: () {
+              print("更多");
+            },
+            icon: const Icon(Icons.more_horiz)
+          )
+        ]
+      ),
+      body: const Text("雷猴")
+    );
+  }
+}
+
 
 
