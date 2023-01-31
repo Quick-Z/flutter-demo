@@ -1,6 +1,6 @@
-// 抽屉组件 drawer
+// 底部导航条 FloatingActionButton
 import "package:flutter/material.dart";
-import './pages/tabsDrawer.dart';
+import './pages/tabsFloatingActionButton.dart';
 
 void main() {
   // 入口方法
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue
       ),
       // home: HomePage(),
-      home: const TabsDrawer(),
+      home: const TabsFloatingActionButton(),
 
     );
   }
