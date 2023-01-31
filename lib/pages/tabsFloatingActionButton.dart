@@ -42,11 +42,11 @@ class _TabsFloatingActionButtonState extends State<TabsFloatingActionButton> {
         },
         type: BottomNavigationBarType.fixed, // 如果底部有4个或者4个以上的菜单需要配置此参数
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "首页"),
-          BottomNavigationBarItem(icon: Icon(Icons.category), label: "分类"),
-          BottomNavigationBarItem(icon: Icon(Icons.category), label: "消息"),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: "设置"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "用户"),
+          BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: "首页", activeIcon: Icon(Icons.home)),
+          BottomNavigationBarItem(icon: Icon(Icons.category_outlined), label: "分类", activeIcon: Icon(Icons.category)),
+          BottomNavigationBarItem(icon: Icon(Icons.message_outlined), label: "消息", activeIcon: Icon(Icons.message)),
+          BottomNavigationBarItem(icon: Icon(Icons.settings_outlined), label: "设置", activeIcon: Icon(Icons.settings)),
+          BottomNavigationBarItem(icon: Icon(Icons.person_outline), label: "用户", activeIcon: Icon(Icons.person)),
         ]
       ),
       // 浮动按钮
