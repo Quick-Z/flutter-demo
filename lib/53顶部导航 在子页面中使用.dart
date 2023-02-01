@@ -1,6 +1,6 @@
-// 路由
+// 顶部导航 在子页面中使用
 import "package:flutter/material.dart";
-import './pages/tabsRouter.dart';
+import './pages/tabsTabBar.dart';
 
 void main() {
   // 入口方法
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue
       ),
-      home: const TabsRouter(),
+      home: const TabsTabBar(),
     );
   }
 }
