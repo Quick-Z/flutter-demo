@@ -1,6 +1,9 @@
-// 路由的基础用法
+// 命名路由
 import "package:flutter/material.dart";
-import './pages/tabsRouter.dart';
+import './pages/tabsRouterNamed.dart';
+import './pages/views/Named1.dart';
+import './pages/views/Named2.dart';
+import './pages/views/Named3.dart';
 
 void main() {
   // 入口方法
@@ -20,7 +23,18 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue
       ),
-      home: const TabsRouter(),
+      // home: const TabsRouterNamed(),
+      // 初始化路由
+      initialRoute: "/",
+      // 配置路由
+      routes: {
+        "/": (context) => const TabsRouterNamed(),
+        "/Named1": (context) => const Named1(),
+        "/Named2": (context) => const Named2(),
+        "/Named3": (context) {
+          return const Named3();
+        }
+      }
     );
   }
 }
