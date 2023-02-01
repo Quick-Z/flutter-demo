@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart'; // 全局统一iOS风格
 import '../pages/tabsRouterNamed2.dart';
 import '../pages/views/Named1.dart';
 import '../pages/views/Named2.dart';
@@ -32,12 +33,16 @@ var onGenerateRoute = (RouteSettings settings) {
 
   if (pageContentBuilder != null) {
     if (settings.arguments != null) {
-      final Route route = MaterialPageRoute(
+      // MaterialPageRoute 安卓和iOS各自使用自己风格的跳转动画
+      // 全平台使用iOS风格的页面跳转动画
+      final Route route = CupertinoPageRoute(
         builder: (context) => pageContentBuilder(context, arguments: settings.arguments)
       );
         return route;
       } else {
-      final Route route = MaterialPageRoute(
+      // MaterialPageRoute 安卓和iOS各自使用自己风格的跳转动画
+      // 全平台使用iOS风格的页面跳转动画
+      final Route route = CupertinoPageRoute(
         builder: (context) => pageContentBuilder(context)
       );
       return route;
