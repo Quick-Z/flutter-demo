@@ -7,7 +7,10 @@ void main() {
     MaterialApp(
       // 主题
       theme: ThemeData(
-        primarySwatch: Colors.yellow,
+        primarySwatch: Colors.yellow, // 主题颜色
+        appBarTheme: const AppBarTheme(
+          centerTitle: true, // 所有标题都剧中
+        )
       ),
       home: Scaffold(
         appBar: AppBar(title: const Text("雷猴123")),
