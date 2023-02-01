@@ -1,6 +1,10 @@
-// 命名路由3 抽离代码
+// 命名路由4 替换路由
 import "package:flutter/material.dart";
 import './routers/routers.dart';
+import './pages/views/Replacemenet1.dart';
+import './pages/views/Replacemenet2.dart';
+import './pages/views/Replacemenet3.dart';
+import './pages/views/Replacemenet4.dart';
 
 void main() {
   // 入口方法
@@ -20,11 +24,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue
       ),
-      // home: const TabsRouterNamed(),
-      // 初始化路由
       initialRoute: "/",
-      // 路由
-      onGenerateRoute: onGenerateRoute
+      routes: {
+        "/": (context) => const Replacement1(),
+        "/Replacement2": (context) => const Replacement2(),
+        "/Replacement3": (context) => const Replacement3(),
+        "/Replacement4": (context) => const Replacement4()
+      }
     );
   }
 }
