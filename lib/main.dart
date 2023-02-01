@@ -1,4 +1,4 @@
-// 路由
+// 路由的基础用法
 import "package:flutter/material.dart";
 import './pages/tabsRouter.dart';
 

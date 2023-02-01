@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../views/search.dart';
 import '../views/form.dart';
+import '../views/news.dart';
 
 class HomeRouterPage extends StatefulWidget {
   const HomeRouterPage({Key? key}) : super(key: key);
@@ -40,6 +41,23 @@ class _HomeRouterPageState extends State<HomeRouterPage> {
               );
             },
             child: const Text("跳转到表单")
+          ),
+
+          SizedBox(height: 20),
+
+          ElevatedButton(
+            onPressed: () {
+              // 路由跳转
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (BuildContext context) {
+                  return const NewsPage(
+                    title: "雷猴，这是参数",
+                    aid: 12
+                  );
+                })
+              );
+            },
+            child: const Text("跳转传值（新闻页）")
           ),
         ]
       )
